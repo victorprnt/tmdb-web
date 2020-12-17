@@ -29,6 +29,7 @@
     "prettier"
   ],
   "rules": {
+    "no-use-before-define": "off",
     "prettier/prettier": "error",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
@@ -46,6 +47,7 @@
         "tsx": "never"
       }
     ],
+    "camelcase": "off",
     "@typescript-eslint/ban-types": "off"
   },
   "settings": {

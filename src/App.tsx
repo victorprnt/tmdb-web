@@ -4,9 +4,8 @@ import Routes from './routes';
 
 const App = () => (
   <BrowserRouter>
-    <Routes/>
+    <Routes />
   </BrowserRouter>
 );
-
 
 export default App;
