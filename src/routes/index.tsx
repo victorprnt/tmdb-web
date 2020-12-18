@@ -2,13 +2,16 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from '../pages/Home';
-import Menu from '../pages/Menu';
-import Movie from '../pages/Movie';
+import Movies from '../pages/Movies';
+import Series from '../pages/Series';
+import Favorites from '../pages/Favorites';
 
 const Routes = () => (
   <Switch>
     <Route path="/" exact component={Home} />
-    <Route path="/movie" component={Movie} />
+    <Route path="/movies" component={Movies} />
+    <Route path="/series" component={Series} />
+    <Route path="/favorites" component={Favorites} />
   </Switch>
 );
 

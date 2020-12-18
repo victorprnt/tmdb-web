@@ -4,10 +4,10 @@ import * as S from './style';
 
 import NavBar from '../../components/Menu';
 
-const Home = () => (
+const Movies = () => (
   <S.Container>
     <NavBar />
   </S.Container>
 );
 
-export default Home;
+export default Movies;
