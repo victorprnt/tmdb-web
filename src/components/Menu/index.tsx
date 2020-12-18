@@ -4,7 +4,7 @@ import * as S from './style';
 
 import tmdbLogo from '../../assets/images/tmdb-logo.png';
 
-const Movie = () => (
+const Menu = () => (
   <S.NavBar>
     <a href="/">
       <img src={tmdbLogo} alt="TMDB Logo" width="70px" />
@@ -18,4 +18,4 @@ const Movie = () => (
   </S.NavBar>
 );
 
-export default Movie;
+export default Menu;

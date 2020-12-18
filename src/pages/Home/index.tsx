@@ -2,11 +2,17 @@ import React from 'react';
 
 import * as S from './style';
 
-import NavBar from '../../components/Menu';
+import Menu from '../../components/Menu';
+import Card from '../../components/Card';
 
 const Home = () => (
   <S.Container>
-    <NavBar />
+    <S.Header>
+      <Menu />
+    </S.Header>
+    <S.Wrapper>
+      <Card />
+    </S.Wrapper>
   </S.Container>
 );
 
