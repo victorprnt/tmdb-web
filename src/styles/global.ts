@@ -7,4 +7,9 @@ export default createGlobalStyle`
     border: none;
     box-sizing: border-box;
   }
+
+  body, input, button {
+    font: 16px Roboto, sans-serif;
+  }
+
 `;

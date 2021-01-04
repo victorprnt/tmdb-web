@@ -12,6 +12,8 @@ const Home = () => (
     </S.Header>
     <S.Wrapper>
       <Card />
+      <Card />
+      <Card />
     </S.Wrapper>
   </S.Container>
 );

@@ -6,30 +6,48 @@ export const Stars = styled.div`
   width: 100%;
   height: 0%;
 
-  border-top: solid 1px gray;
-
   background-color: rgba(0, 0, 0, 0.4);
 `;
 
-export const Main = styled.div`
-  display: flex;
-  position: relative;
-  width: 225px;
-  height: 337px;
-  background-color: blue;
+export const Main = styled.section`
+  display: block;
+  max-width: 350px;
+  max-height: 350px;
 
-  &:hover ${Stars} {
-    height: 15%;
-    animation: show-stars 200ms ease-out;
+  padding: 18px;
+  position: relative;
+
+  a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+
+    div {
+      img {
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        width: 35px;
+      }
+    }
+
+    img {
+      border-radius: 5px;
+    }
+
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      filter: grayscale(0%);
+    }
   }
 
-  @keyframes show-stars {
-    from {
-      height: 0;
-    }
-
-    to {
-      height: 15%;
-    }
+  strong {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
   }
 `;
