@@ -5,7 +5,7 @@ import * as S from './style';
 
 const Card = () => (
   <S.Main>
-    <Link to="/movies">
+    <Link to="/movie">
       <div>
         <img
           src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"

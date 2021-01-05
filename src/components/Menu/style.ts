@@ -24,14 +24,16 @@ export const Links = styled.div`
     text-decoration: none;
     font-size: 18px;
     line-height: 28px;
-  }
 
-  a:not(:last-child) {
-    margin-right: 20px;
-  }
+    transition: color 0.2s ease-in-out;
 
-  a:hover {
-    color: #2a9d8f;
+    &:hover {
+      color: #2a9d8f;
+    }
+
+    & + a {
+      margin-left: 20px;
+    }
   }
 
   input {
