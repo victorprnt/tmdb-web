@@ -1,24 +1,20 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100vw;
   height: 100vh;
-`;
+  width: 1000px;
 
-export const Card = styled.section`
-  display: block;
-  max-width: 350px;
-  max-height: 350px;
-
-  padding: 18px;
+  padding: 40px;
   position: relative;
 
   a {
     display: block;
-    width: 100%;
+    max-width: 350px;
+    max-height: 350px;
+    margin: 0 20px;
+
     text-decoration: none;
     position: relative;
 
@@ -29,6 +25,13 @@ export const Card = styled.section`
         top: -5px;
         width: 35px;
       }
+    }
+
+    strong {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      color: #264653;
     }
 
     img {
@@ -42,11 +45,5 @@ export const Card = styled.section`
       transform: translateY(-5px);
       filter: grayscale(0%);
     }
-  }
-
-  strong {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
   }
 `;

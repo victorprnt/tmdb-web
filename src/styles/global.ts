@@ -14,8 +14,6 @@ export default createGlobalStyle`
     margin: 0;
     border: none;
     box-sizing: border-box;
-
-
   }
 
   body, input, button {

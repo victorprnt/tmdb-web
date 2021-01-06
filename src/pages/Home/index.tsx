@@ -1,33 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import * as S from './style';
 
 import Menu from '../../components/Menu';
-import Card from '../../components/Card';
+import { getTrendingMovies } from '../../services/movie-services';
 
-const Home = () => (
-  <>
-    <Menu />
-    <S.Wrapper>
-      <S.Card>
-        <Link to="/movie">
-          <div>
-            <img
-              src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"
-              alt=""
-            />
-          </div>
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average: number;
+}
 
-          <img
-            src="http://image.tmdb.org/t/p/w185/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg"
-            alt=""
-          />
-        </Link>
-        <strong>Clube da Luta</strong>
-      </S.Card>
-    </S.Wrapper>
-  </>
-);
+// const tmdbKey = 'api_key=34d6e856a918914f65527a936f73f3f2';
+
+const Home = () => {
+  const [movies, setMovies] = useState<Movie[]>();
+
+  useEffect(() => {
+    handleTrendingMovies();
+  }, [setMovies]);
+
+  async function handleTrendingMovies() {
+    const { data } = await getTrendingMovies();
+    setMovies(data.results);
+  }
+
+  return (
+    <>
+      <Menu />
+      <S.Container>
+        {movies &&
+          movies.map(movie => (
+            <div>
+              <Link key={movie.id} to={`/movie/${movie.id}`}>
+                <div>
+                  <img
+                    src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"
+                    alt=""
+                  />
+                </div>
+
+                <img
+                  src={`${process.env.REACT_APP_TMDB_CARD}${movie.poster_path}`}
+                  alt=""
+                />
+              </Link>
+              <strong>{movie.title}</strong>
+            </div>
+          ))}
+      </S.Container>
+    </>
+  );
+};
 
 export default Home;
