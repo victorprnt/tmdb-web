@@ -1,23 +1,29 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const NavBar = styled.div`
+import { shade } from 'polished';
+import theme from '../../styles/theme';
+
+export const Wrapper = styled.div`
   display: flex;
-  width: 100vw;
-  position: relative;
-  background-color: #264653;
+  width: 100%;
+  background-color: ${theme.colors.primary};
 
-  padding: 10px;
-
-  img {
-    margin-right: 30px;
-  }
+  padding: 10px 40px;
 `;
 
-export const Links = styled.div`
+export const Container = styled.div`
   display: flex;
+  max-width: 1400px;
+  width: 100%;
+
+  margin: 0 auto;
+
   justify-content: center;
   align-items: center;
+
+  img {
+    margin-right: 20px;
+  }
 
   a {
     color: white;
@@ -28,7 +34,7 @@ export const Links = styled.div`
     transition: color 0.2s ease-in-out;
 
     &:hover {
-      color: #2a9d8f;
+      color: ${theme.colors.secondary};
     }
 
     & + a {
@@ -36,15 +42,48 @@ export const Links = styled.div`
     }
   }
 
-  input {
-    position: absolute;
-    right: 50px;
-    border-radius: 3px;
-    height: 20px;
-    width: 200px;
+  div {
+    margin-left: auto;
+
+    input {
+      height: 25px;
+      width: 200px;
+      padding: 0 5px;
+      margin-left: auto;
+      border-radius: 3px 0 0 3px;
+
+      &::placeholder {
+        color: ${theme.colors.placeholder};
+      }
+    }
+
+    button {
+      height: 25px;
+      margin-left: 1px;
+      padding: 0 4px;
+
+      border: none;
+      border-radius: 0 3px 3px 0;
+
+      color: #fff;
+      background-color: ${theme.colors.secondary};
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: ${shade(0.2, `${theme.colors.secondary}`)};
+      }
+    }
+  }
+
+  @media (max-width: 1400px) {
+    max-width: 720px;
+  }
+
+  @media (max-width: 720px) {
+    max-width: 640px;
+  }
+
+  @media (max-width: 640px) {
+    max-width: 320px;
   }
 `;
-
-export const LinkMovies = styled(Link)``;
-export const LinkSeries = styled(Link)``;
-export const LinkFavorites = styled(Link)``;
