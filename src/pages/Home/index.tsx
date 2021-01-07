@@ -35,12 +35,12 @@ const Home = () => {
           movies.map(movie => (
             <div>
               <Link key={movie.id} to={`/movie/${movie.id}`}>
-                <div>
+                {/* <div>
                   <img
                     src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"
                     alt=""
                   />
-                </div>
+                </div> */}
 
                 <img
                   src={`${process.env.REACT_APP_TMDB_CARD}${movie.poster_path}`}
