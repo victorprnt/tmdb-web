@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <>
       <Menu />
-      <S.Container>
+      <S.Movies>
         {movies &&
           movies.map(movie => (
             <div>
@@ -50,7 +50,7 @@ const Home = () => {
               <strong>{movie.title}</strong>
             </div>
           ))}
-      </S.Container>
+      </S.Movies>
     </>
   );
 };

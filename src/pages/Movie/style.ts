@@ -1,17 +1,21 @@
 import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 export const Details = styled.div`
   display: flex;
 
+  width: 1400px;
   margin-top: 30px;
-  padding: 0 20px;
+
+  margin: 0 auto;
+  margin-top: 40px;
 
   img {
     border-radius: 5px;
   }
 
   section {
-    margin-left: 25px;
+    margin-left: 30px;
     margin-top: 10px;
 
     header {
@@ -22,7 +26,7 @@ export const Details = styled.div`
       strong {
         font-size: 28px;
         line-height: 38px;
-        color: #3d3d4d;
+        color: ${theme.colors.primary};
       }
 
       svg {
@@ -33,7 +37,7 @@ export const Details = styled.div`
       p {
         font-size: 21px;
         line-height: 26px;
-        color: #a8a8b3;
+        color: ${theme.colors.secondary};
       }
     }
 
@@ -48,23 +52,27 @@ export const Details = styled.div`
         }
       }
 
-      strong {
-        display: block;
+      #tagline {
         margin-top: 40px;
-        font-size: 21px;
-        line-height: 24px;
+        font-size: 18px;
+        line-height: 21px;
+
+        color: ${theme.colors.tagline};
       }
 
-      p {
+      #sinopse {
         margin-top: 25px;
-        font-size: 16px;
-        line-height: 21px;
+        font-size: 19px;
+        line-height: 22px;
+
+        color: ${theme.colors.sinopse};
       }
     }
 
     footer {
       margin-top: 35px;
 
+      /* Movie Genre */
       span {
         background-color: #e76f51;
         padding: 4px;
