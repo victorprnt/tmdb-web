@@ -6,6 +6,7 @@ export const Movies = styled.div`
   flex-wrap: wrap;
 
   max-width: 1400px;
+
   margin: 40px auto;
 
   div {

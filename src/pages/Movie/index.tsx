@@ -5,7 +5,11 @@ import { useRouteMatch } from 'react-router-dom';
 import * as S from './style';
 
 import Menu from '../../components/Menu';
-import { getMovieDetail, getMovieSocial } from '../../services/movie-services';
+import {
+  getMovieDetail,
+  getMovieSocial,
+  getMovieCastAndCrew,
+} from '../../services/movie-services';
 
 interface MovieParams {
   movieId: string;
@@ -29,11 +33,19 @@ interface Genre {
   name: string;
 }
 
-interface Crew {
+interface Cast {
   id: number;
   name: string;
+  character: string;
   profile_path: string;
+}
+
+interface Crew {
+  id: number;
+  credit_id: string;
+  name: string;
   job: string;
+  profile_path: string;
 }
 
 interface Social {
@@ -46,6 +58,8 @@ const Movie = () => {
   const { params } = useRouteMatch<MovieParams>();
   const [movieDetail, setMovieDetail] = useState<Movie>();
   const [movieSocial, setMovieSocial] = useState<Social>();
+  const [movieCast, setMovieCast] = useState<Cast[]>([]);
+  const [movieCrew, setMovieCrew] = useState<Crew[]>([]);
 
   async function handleMovieDetail(movieId: string) {
     const { data } = await getMovieDetail(movieId);
@@ -57,6 +71,16 @@ const Movie = () => {
     setMovieSocial(data);
   }
 
+  async function handleMovieCast(movieId: string) {
+    const { data } = await getMovieCastAndCrew(movieId);
+    setMovieCast(data.cast);
+  }
+
+  async function handleMovieCrew(movieId: string) {
+    const { data } = await getMovieCastAndCrew(movieId);
+    setMovieCrew(data.crew);
+  }
+
   // async function handleMovieGenre(movieId: string) {
   //   const { data } = await getMovieGenre(movieId);
   //   console.log(data.genres);
@@ -65,7 +89,9 @@ const Movie = () => {
   useEffect(() => {
     handleMovieDetail(params.movieId);
     handleMovieSocial(params.movieId);
-  }, [setMovieDetail, setMovieSocial]);
+    handleMovieCast(params.movieId);
+    handleMovieCrew(params.movieId);
+  }, [setMovieDetail, setMovieSocial, setMovieCast, setMovieCrew]);
 
   return (
     <>
@@ -97,11 +123,21 @@ const Movie = () => {
               <ul>
                 <li>
                   <strong>Direção</strong>
-                  <p>John Smith</p>
+                  {movieCrew &&
+                    movieCrew.map(crew => {
+                      return (
+                        <p key={crew.credit_id}>
+                          {crew.job === 'Director' && crew.name}
+                        </p>
+                      );
+                    })}
                 </li>
                 <li>
                   <strong>Elenco</strong>
-                  <p>Fulano, Beltrano, Sicrano</p>
+                  {movieCast &&
+                    movieCast.slice(0, 3).map(cast => {
+                      return <p key={cast.id}>{cast.name}</p>;
+                    })}
                 </li>
               </ul>
               {movieSocial && (

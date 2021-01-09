@@ -33,8 +33,8 @@ const Home = () => {
       <S.Movies>
         {movies &&
           movies.map(movie => (
-            <div>
-              <Link key={movie.id} to={`/movie/${movie.id}`}>
+            <div key={movie.id}>
+              <Link to={`/movie/${movie.id}`}>
                 {/* <div>
                   <img
                     src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"

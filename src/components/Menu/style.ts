@@ -42,12 +42,12 @@ export const Container = styled.div`
     }
   }
 
-  div {
+  form {
     margin-left: auto;
 
     input {
-      height: 25px;
-      width: 200px;
+      height: 30px;
+      width: 300px;
       padding: 0 5px;
       margin-left: auto;
       border-radius: 3px 0 0 3px;
@@ -57,8 +57,18 @@ export const Container = styled.div`
       }
     }
 
+    a {
+      img {
+      }
+
+      span {
+        margin-top: 8px;
+      }
+    }
+
     button {
-      height: 25px;
+      height: 30px;
+      width: 100px;
       margin-left: 1px;
       padding: 0 4px;
 
