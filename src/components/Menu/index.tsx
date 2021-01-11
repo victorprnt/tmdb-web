@@ -1,5 +1,5 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 import * as FI from 'react-icons/fi';
 import * as S from './style';
@@ -26,11 +26,13 @@ const Menu = () => {
     setMovies(data.results);
   }
 
+  function cleanQuery() {
+    setQuery('');
+  }
+
   useEffect(() => {
+    query.length <= 1 && setMovies(null);
     query.length > 1 && handleSearchMovie();
-    query.length === 0 && setMovies(null);
-    console.log(query);
-    console.log(movies);
   }, [query, setMovies]);
 
   return (
@@ -52,15 +54,21 @@ const Menu = () => {
               // query.length > 1 && handleSearchMovie();
             }}
           />
-          {movies &&
-            movies.map(movie => {
-              return (
-                <Link key={movie.id} to={`/movie/${movie.id}`}>
-                  <img src="" alt="" />
-                  <span>{movie.title}</span>
-                </Link>
-              );
-            })}
+          <div>
+            {movies &&
+              movies.map(movie => {
+                return (
+                  <Link
+                    key={movie.id}
+                    to={`/movie/${movie.id}`}
+                    onClick={cleanQuery}
+                  >
+                    <img src="" alt="" />
+                    <span>{movie.title}</span>
+                  </Link>
+                );
+              })}
+          </div>
           <button type="submit">Pesquisar</button>
         </form>
       </S.Container>

@@ -57,12 +57,53 @@ export const Container = styled.div`
       }
     }
 
-    a {
-      img {
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      /* width: 200px; */
+      height: 200px;
+
+      position: absolute;
+      /* top: 0;
+      left: 0; */
+      z-index: 1;
+
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      a {
+        width: 100%;
+        padding: 5px;
+        border-top: 1px solid ${theme.colors.sinopse};
+
+        background-color: ${theme.colors.placeholder};
+
+        text-decoration: none;
+        color: white;
       }
 
-      span {
-        margin-top: 8px;
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        width: 0;
+        /* background: rgba(255, 255, 255, 0); */
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: ${theme.colors.scrollbar};
+        border-radius: 5px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: ${shade(0.2, `${theme.colors.scrollbar}`)};
       }
     }
 

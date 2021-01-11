@@ -91,7 +91,7 @@ const Movie = () => {
     handleMovieSocial(params.movieId);
     handleMovieCast(params.movieId);
     handleMovieCrew(params.movieId);
-  }, [setMovieDetail, setMovieSocial, setMovieCast, setMovieCrew]);
+  }, [setMovieDetail, setMovieSocial, setMovieCast, setMovieCrew, params]);
 
   return (
     <>
