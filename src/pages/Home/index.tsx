@@ -13,8 +13,6 @@ interface Movie {
   vote_average: number;
 }
 
-// const tmdbKey = 'api_key=34d6e856a918914f65527a936f73f3f2';
-
 const Home = () => {
   const [movies, setMovies] = useState<Movie[]>();
 
@@ -33,8 +31,8 @@ const Home = () => {
       <S.Movies>
         {movies &&
           movies.map(movie => (
-            <div>
-              <Link key={movie.id} to={`/movie/${movie.id}`}>
+            <div key={movie.id}>
+              <Link to={`/movie/${movie.id}`}>
                 {/* <div>
                   <img
                     src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"

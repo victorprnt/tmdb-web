@@ -22,7 +22,7 @@ export const getMovieDetail = async (movieId: string) => {
   }
 };
 
-export const getCrew = async (id: string) => {
+export const getMovieCastAndCrew = async (id: string) => {
   try {
     const { data, status } = await api.get(
       `/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`,
@@ -37,6 +37,17 @@ export const getMovieSocial = async (id: string) => {
   try {
     const { data, status } = await api.get(
       `/movie/${id}/external_ids?api_key=${process.env.REACT_APP_TMDB_KEY}`,
+    );
+    return { data, status };
+  } catch (error) {
+    return { error };
+  }
+};
+
+export const getSearchResult = async (movieName: string) => {
+  try {
+    const { data, status } = await api.get(
+      `search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=pt-BR&query=${movieName}&page=1&include_adult=false`,
     );
     return { data, status };
   } catch (error) {

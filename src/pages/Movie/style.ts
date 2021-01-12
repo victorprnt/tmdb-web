@@ -4,7 +4,7 @@ import theme from '../../styles/theme';
 export const Details = styled.div`
   display: flex;
 
-  width: 1400px;
+  max-width: 1400px;
   margin-top: 30px;
 
   margin: 0 auto;

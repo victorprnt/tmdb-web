@@ -6,6 +6,7 @@ export const Movies = styled.div`
   flex-wrap: wrap;
 
   max-width: 1400px;
+
   margin: 40px auto;
 
   div {
@@ -22,7 +23,6 @@ export const Movies = styled.div`
 
       justify-content: center;
 
-      filter: grayscale(100%);
       transition: all 0.4s;
 
       img {
@@ -30,7 +30,6 @@ export const Movies = styled.div`
       }
 
       &:hover {
-        filter: grayscale(0%);
         transform: translateY(-5px);
       }
     }
