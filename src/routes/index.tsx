@@ -5,7 +5,6 @@ import Home from '../pages/Home';
 import Movie from '../pages/Movie';
 import Series from '../pages/Series';
 import Favorites from '../pages/Favorites';
-import Search from '../components/Search';
 
 const Routes = () => (
   <Switch>
@@ -13,7 +12,6 @@ const Routes = () => (
     <Route path="/movie/:movieId" exact component={Movie} />
     <Route path="/series" component={Series} />
     <Route path="/favorites" component={Favorites} />
-    <Route path="/search" component={Search} />
   </Switch>
 );
 

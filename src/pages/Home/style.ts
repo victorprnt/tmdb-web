@@ -23,7 +23,6 @@ export const Movies = styled.div`
 
       justify-content: center;
 
-      filter: grayscale(100%);
       transition: all 0.4s;
 
       img {
@@ -31,7 +30,6 @@ export const Movies = styled.div`
       }
 
       &:hover {
-        filter: grayscale(0%);
         transform: translateY(-5px);
       }
     }

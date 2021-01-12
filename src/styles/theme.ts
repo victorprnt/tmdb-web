@@ -8,6 +8,7 @@ export default {
     placeholder: '#a8a8b3',
     tagline: '#a8a8b3',
     scrollbar: '#909099',
+    search: '#909099',
     sinopse: '#000',
   },
 } as const;

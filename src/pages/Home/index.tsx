@@ -13,8 +13,6 @@ interface Movie {
   vote_average: number;
 }
 
-// const tmdbKey = 'api_key=34d6e856a918914f65527a936f73f3f2';
-
 const Home = () => {
   const [movies, setMovies] = useState<Movie[]>();
 
