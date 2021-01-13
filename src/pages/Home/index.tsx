@@ -5,12 +5,12 @@ import * as S from './style';
 
 import Menu from '../../components/Menu';
 import { getTrendingMovies } from '../../services/movie-services';
+import Card from '../../components/Card';
 
 interface Movie {
   id: number;
   title: string;
   poster_path: string;
-  vote_average: number;
 }
 
 const Home = () => {
@@ -31,22 +31,28 @@ const Home = () => {
       <S.Movies>
         {movies &&
           movies.map(movie => (
-            <div key={movie.id}>
-              <Link to={`/movie/${movie.id}`}>
-                {/* <div>
-                  <img
-                    src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"
-                    alt=""
-                  />
-                </div> */}
+            <Card
+              id={movie.id}
+              poster_path={movie.poster_path}
+              title={movie.title}
+              key={movie.id}
+            />
+            // <div key={movie.id}>
+            //   <Link to={`/movie/${movie.id}`}>
+            //     {/* <div>
+            //       <img
+            //         src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"
+            //         alt=""
+            //       />
+            //     </div> */}
 
-                <img
-                  src={`${process.env.REACT_APP_TMDB_CARD}${movie.poster_path}`}
-                  alt=""
-                />
-              </Link>
-              <strong>{movie.title}</strong>
-            </div>
+            //     <img
+            //       src={`${process.env.REACT_APP_TMDB_CARD}${movie.poster_path}`}
+            //       alt=""
+            //     />
+            //   </Link>
+            //   <strong>{movie.title}</strong>
+            // </div>
           ))}
       </S.Movies>
     </>

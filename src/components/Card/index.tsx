@@ -3,23 +3,24 @@ import { Link } from 'react-router-dom';
 
 import * as S from './style';
 
-const Card = () => (
-  <S.Main>
-    <Link to="/movie">
-      <div>
-        <img
-          src="https://ecdn.teacherspayteachers.com/thumbitem/Percentage-Rings-Black-Filled-Infographic-Elements-Clip-Art-Set-Commercial-Use-2905409-1524270454/original-2905409-2.jpg"
-          alt=""
-        />
-      </div>
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+}
 
-      <img
-        src="http://image.tmdb.org/t/p/w185/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg"
-        alt=""
-      />
-    </Link>
-    <strong>Clube da Luta</strong>
-  </S.Main>
+const Card = (movie: Movie) => (
+  <S.Wrapper>
+    <div key={movie.id}>
+      <Link to={`/movie/${movie.id}`}>
+        <img
+          src={`${process.env.REACT_APP_TMDB_CARD}${movie.poster_path}`}
+          alt={movie.title}
+        />
+      </Link>
+      <strong>{movie.title}</strong>
+    </div>
+  </S.Wrapper>
 );
 
 export default Card;

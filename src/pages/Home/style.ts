@@ -9,7 +9,7 @@ export const Movies = styled.div`
 
   margin: 40px auto;
 
-  div {
+  /* div {
     display: inline-block;
     width: 225px;
     margin-bottom: 10px;
@@ -45,7 +45,7 @@ export const Movies = styled.div`
       text-align: center;
 
       color: ${theme.colors.primary};
-    }
+    } */
   }
 
   @media (max-width: 1400px) {

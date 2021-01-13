@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import * as FI from 'react-icons/fi';
+import * as BS from 'react-icons/bs';
+
 import { useRouteMatch } from 'react-router-dom';
 import * as S from './style';
 
@@ -10,6 +12,7 @@ import {
   getMovieSocial,
   getMovieCastAndCrew,
 } from '../../services/movie-services';
+import { getLaunchYear } from '../../utils';
 
 interface MovieParams {
   movieId: string;
@@ -105,12 +108,12 @@ const Movie = () => {
           <section>
             <header>
               <strong>{movieDetail.title}</strong>
-              <FI.FiStar size={20} />
+              <BS.BsStar size={22} />
               <p>{movieDetail.original_title}</p>
             </header>
 
             <div>
-              <span>{movieDetail.release_date}</span>
+              <span>{getLaunchYear(movieDetail.release_date)}</span>
               <span>{movieDetail.runtime} min</span>
               <p id="tagline">{movieDetail.tagline}</p>
               <p id="sinopse">{movieDetail.overview}</p>

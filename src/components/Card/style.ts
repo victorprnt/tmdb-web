@@ -1,53 +1,29 @@
 import styled from 'styled-components';
 
-export const Stars = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 0%;
+export const Wrapper = styled.section`
+  div {
+    display: inline-block;
+    width: 225px;
+    margin-bottom: 10px;
 
-  background-color: rgba(0, 0, 0, 0.4);
-`;
+    a {
+      display: flex;
+      width: 100%;
 
-export const Main = styled.section`
-  display: block;
-  max-width: 350px;
-  max-height: 350px;
+      padding: 10px;
+      margin: 0 auto;
 
-  padding: 18px;
-  position: relative;
+      justify-content: center;
 
-  a {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-    position: relative;
+      transition: all 0.4s;
 
-    div {
       img {
-        position: absolute;
-        right: -5px;
-        top: -5px;
-        width: 35px;
+        border-radius: 4px;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
       }
     }
-
-    img {
-      border-radius: 5px;
-    }
-
-    filter: grayscale(100%);
-    transition: all 0.5s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      filter: grayscale(0%);
-    }
-  }
-
-  strong {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
   }
 `;
