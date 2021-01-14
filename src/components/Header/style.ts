@@ -22,9 +22,13 @@ export const Wrapper = styled.section`
   @media (max-width: 640px) {
     max-width: 320px; */
   /* } */
-  @media (max-width: ${theme.sizes.mobileL}) {
+
+  @media (max-width: ${theme.screenSize.tablet}) {
+    position: fixed;
+    top: 0;
     flex-direction: column;
     align-items: center;
+
     div {
       margin-bottom: 15px;
     }
@@ -70,7 +74,7 @@ export const LinksContainer = styled.div`
     }
   }
 
-  @media (max-width: ${theme.sizes.mobileL}) {
+  @media (max-width: ${theme.screenSize.tablet}) {
     a {
       font-size: ${theme.fonts.mobile};
     }
@@ -98,6 +102,15 @@ export const FormContainer = styled.div`
 
       &::placeholder {
         color: ${theme.colors.placeholder};
+      }
+    }
+  }
+
+  @media (max-width: ${theme.screenSize.tablet}) {
+    form {
+      width: 480px;
+      input {
+        width: 100%;
       }
     }
   }

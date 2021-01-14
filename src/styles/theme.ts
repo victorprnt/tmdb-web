@@ -12,12 +12,12 @@ export default {
     sinopse: '#000',
   },
 
-  sizes: {
+  screenSize: {
     mobileS: '320px',
     mobileM: '375px',
     mobileL: '425px',
     tablet: '768px',
-    notebook: '1024px',
+    laptop: '1024px',
     desktop: '1440px',
     fullHD: '1920px',
     FourK: '2560px',

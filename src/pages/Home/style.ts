@@ -6,9 +6,7 @@ export const Movies = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-
-  max-width: 1400px;
-
+  max-width: 1700px;
   margin: 40px auto;
 
   /* div {
@@ -47,18 +45,26 @@ export const Movies = styled.div`
       text-align: center;
 
       color: ${theme.colors.primary};
-    } */
+    }
+  } */
+
+  @media (max-width: ${theme.screenSize.FourK}) {
+    max-width: 1700px;
   }
 
-  @media (max-width: 1400px) {
-    max-width: 720px;
+  @media (max-width: ${theme.screenSize.fullHD}) {
+    max-width: 1200px;
   }
 
-  @media (max-width: 720px) {
-    max-width: 640px;
+  @media (max-width: ${theme.screenSize.desktop}) {
+    max-width: 980px;
   }
 
-  @media (max-width: 640px) {
-    max-width: 320px;
+  @media (max-width: ${theme.screenSize.laptop}) {
+    max-width: 980px;
+  }
+
+  @media (max-width: ${theme.screenSize.tablet}) {
+    margin-top: 150px;
   }
 `;
