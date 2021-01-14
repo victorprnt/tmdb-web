@@ -11,4 +11,25 @@ export default {
     search: '#909099',
     sinopse: '#000',
   },
+
+  sizes: {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    notebook: '1024px',
+    desktop: '1440px',
+    fullHD: '1920px',
+    FourK: '2560px',
+  },
+
+  fonts: {
+    mobile: '16px',
+    pc: '18px',
+  },
+
+  lineheight: {
+    mobile: '26px',
+    pc: '28px',
+  },
 } as const;

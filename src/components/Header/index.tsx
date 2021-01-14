@@ -12,7 +12,6 @@ interface Movie {
   id: number;
   title: string;
   poster_path: string;
-  vote_average: number;
 }
 
 const Header = () => {
@@ -62,7 +61,7 @@ const Header = () => {
           <input
             value={query}
             type="text"
-            placeholder="Filme ou série"
+            placeholder="Pesquisar filme por título"
             onChange={e => {
               setQuery(e.target.value);
               delayQuery(e.target.value);
@@ -91,7 +90,6 @@ const Header = () => {
                 );
               })}
           </S.SearchMenu>
-          {/* <button type="submit">Pesquisar</button> */}
         </form>
       </S.FormContainer>
     </S.Wrapper>

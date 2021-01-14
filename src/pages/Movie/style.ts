@@ -31,9 +31,10 @@ export const Details = styled.div`
 
       button {
         background-color: rgba(0, 0, 0, 0);
-        cursor: pointer;
         align-self: center;
         margin-left: 12px;
+        outline: none;
+        cursor: pointer;
       }
 
       p {

@@ -4,6 +4,8 @@ import theme from '../../styles/theme';
 export const Movies = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
 
   max-width: 1400px;
 

@@ -59,6 +59,7 @@ interface Social {
 
 const Movie = () => {
   const { params } = useRouteMatch<MovieParams>();
+  const [isFavorite, setFavorite] = useState(false);
   const [movieDetail, setMovieDetail] = useState<Movie>();
   const [movieSocial, setMovieSocial] = useState<Social>();
   const [movieCast, setMovieCast] = useState<Cast[]>([]);
@@ -100,6 +101,7 @@ const Movie = () => {
         '@TMDB:favorites',
         JSON.stringify([...movieFavorites, movieDetail]),
       );
+      setFavorite(true);
     }
   }
 
@@ -123,7 +125,11 @@ const Movie = () => {
             <header>
               <strong>{movieDetail.title}</strong>
               <button type="button" onClick={storeFavorite}>
-                <BS.BsStar size={22} />
+                {isFavorite ? (
+                  <BS.BsStarFill size={22} />
+                ) : (
+                  <BS.BsStar size={22} />
+                )}
               </button>
               <p>{movieDetail.original_title}</p>
             </header>

@@ -11,7 +11,6 @@ interface Movie {
   id: number;
   title: string;
   poster_path: string;
-  favorite: false;
 }
 
 const Home = () => {
