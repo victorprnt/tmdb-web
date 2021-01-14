@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 export const Wrapper = styled.section`
   div {
@@ -24,6 +25,18 @@ export const Wrapper = styled.section`
       &:hover {
         transform: translateY(-5px);
       }
+    }
+    strong {
+      display: flex;
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 5px;
+
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      color: ${theme.colors.primary};
     }
   }
 `;

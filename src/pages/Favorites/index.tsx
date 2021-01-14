@@ -1,12 +1,42 @@
-import React from 'react';
-import NavBar from '../../components/Menu';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Card from '../../components/Card';
+import Header from '../../components/Header';
+import { getMovieDetail } from '../../services/movie-services';
 
-import { Container } from './style';
+import * as S from './style';
 
-const Favorites = () => (
-  <Container>
-    <NavBar />
-  </Container>
-);
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+}
+
+const Favorites = () => {
+  const [favorites, setFavorites] = useState<Movie[]>(() => {
+    const storagedFavorites = localStorage.getItem('@TMDB:favorites');
+    if (storagedFavorites) {
+      return JSON.parse(storagedFavorites);
+    }
+    return [];
+  });
+
+  return (
+    <>
+      <Header />
+      <S.Wrapper>
+        {favorites &&
+          favorites.map(favorite => (
+            <Card
+              id={favorite.id}
+              poster_path={favorite.poster_path}
+              title={favorite.title}
+              key={favorite.id}
+            />
+          ))}
+      </S.Wrapper>
+    </>
+  );
+};
 
 export default Favorites;

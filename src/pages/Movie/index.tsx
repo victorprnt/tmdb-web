@@ -6,7 +6,7 @@ import * as BS from 'react-icons/bs';
 import { useRouteMatch } from 'react-router-dom';
 import * as S from './style';
 
-import Menu from '../../components/Menu';
+import Header from '../../components/Header';
 import {
   getMovieDetail,
   getMovieSocial,
@@ -63,6 +63,13 @@ const Movie = () => {
   const [movieSocial, setMovieSocial] = useState<Social>();
   const [movieCast, setMovieCast] = useState<Cast[]>([]);
   const [movieCrew, setMovieCrew] = useState<Crew[]>([]);
+  const [movieFavorites, setMovieFavorites] = useState<Movie[]>(() => {
+    const storagedFavorites = localStorage.getItem('@TMDB:favorites');
+    if (storagedFavorites) {
+      return JSON.parse(storagedFavorites);
+    }
+    return [];
+  });
 
   async function handleMovieDetail(movieId: string) {
     const { data } = await getMovieDetail(movieId);
@@ -84,10 +91,17 @@ const Movie = () => {
     setMovieCrew(data.crew);
   }
 
-  // async function handleMovieGenre(movieId: string) {
-  //   const { data } = await getMovieGenre(movieId);
-  //   console.log(data.genres);
-  // }
+  function storeFavorite() {
+    if (movieDetail) {
+      console.log(movieDetail);
+      console.log(movieFavorites);
+      console.log(movieFavorites.includes(movieDetail));
+      localStorage.setItem(
+        '@TMDB:favorites',
+        JSON.stringify([...movieFavorites, movieDetail]),
+      );
+    }
+  }
 
   useEffect(() => {
     handleMovieDetail(params.movieId);
@@ -98,7 +112,7 @@ const Movie = () => {
 
   return (
     <>
-      <Menu />
+      <Header />
       {movieDetail && (
         <S.Details>
           <img
@@ -108,7 +122,9 @@ const Movie = () => {
           <section>
             <header>
               <strong>{movieDetail.title}</strong>
-              <BS.BsStar size={22} />
+              <button type="button" onClick={storeFavorite}>
+                <BS.BsStar size={22} />
+              </button>
               <p>{movieDetail.original_title}</p>
             </header>
 

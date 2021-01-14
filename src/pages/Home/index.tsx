@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import * as S from './style';
 
-import Menu from '../../components/Menu';
+import Header from '../../components/Header';
 import { getTrendingMovies } from '../../services/movie-services';
 import Card from '../../components/Card';
 
@@ -11,6 +11,7 @@ interface Movie {
   id: number;
   title: string;
   poster_path: string;
+  favorite: false;
 }
 
 const Home = () => {
@@ -27,7 +28,7 @@ const Home = () => {
 
   return (
     <>
-      <Menu />
+      <Header />
       <S.Movies>
         {movies &&
           movies.map(movie => (

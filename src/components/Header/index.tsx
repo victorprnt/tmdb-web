@@ -15,7 +15,7 @@ interface Movie {
   vote_average: number;
 }
 
-const Menu = () => {
+const Header = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState<Movie[] | null>(null);
 
@@ -91,11 +91,11 @@ const Menu = () => {
                 );
               })}
           </S.SearchMenu>
-          <button type="submit">Pesquisar</button>
+          {/* <button type="submit">Pesquisar</button> */}
         </form>
       </S.FormContainer>
     </S.Wrapper>
   );
 };
 
-export default Menu;
+export default Header;

@@ -2,11 +2,11 @@ import React from 'react';
 
 import * as S from './style';
 
-import NavBar from '../../components/Menu';
+import Header from '../../components/Header';
 
 const Series = () => (
   <S.Container>
-    <NavBar />
+    <Header />
   </S.Container>
 );
 
