@@ -12,7 +12,8 @@ import {
   getMovieSocial,
   getMovieCastAndCrew,
 } from '../../services/movie-services';
-import { getLaunchYear } from '../../utils';
+import { checkIfStoraged, getFavoritesList, getLaunchYear } from '../../utils';
+import theme from '../../styles/theme';
 
 interface MovieParams {
   movieId: string;
@@ -59,18 +60,11 @@ interface Social {
 
 const Movie = () => {
   const { params } = useRouteMatch<MovieParams>();
-  const [isFavorite, setFavorite] = useState(false);
   const [movieDetail, setMovieDetail] = useState<Movie>();
   const [movieSocial, setMovieSocial] = useState<Social>();
   const [movieCast, setMovieCast] = useState<Cast[]>([]);
   const [movieCrew, setMovieCrew] = useState<Crew[]>([]);
-  const [movieFavorites, setMovieFavorites] = useState<Movie[]>(() => {
-    const storagedFavorites = localStorage.getItem('@TMDB:favorites');
-    if (storagedFavorites) {
-      return JSON.parse(storagedFavorites);
-    }
-    return [];
-  });
+  const [isFavorite, setIsFavorite] = useState(false);
 
   async function handleMovieDetail(movieId: string) {
     const { data } = await getMovieDetail(movieId);
@@ -92,18 +86,10 @@ const Movie = () => {
     setMovieCrew(data.crew);
   }
 
-  function storeFavorite() {
-    if (movieDetail) {
-      console.log(movieDetail);
-      console.log(movieFavorites);
-      console.log(movieFavorites.includes(movieDetail));
-      localStorage.setItem(
-        '@TMDB:favorites',
-        JSON.stringify([...movieFavorites, movieDetail]),
-      );
-      setFavorite(true);
-    }
-  }
+  const handleIsFavorite = React.useCallback(() => {
+    const movieDetailStringfied = JSON.stringify(movieDetail);
+    const isStored = checkIfStoraged(movieDetailStringfied);
+  }, [setIsFavorite, movieDetail]);
 
   useEffect(() => {
     handleMovieDetail(params.movieId);
@@ -126,9 +112,9 @@ const Movie = () => {
           <section>
             <header>
               <strong>{movieDetail.title}</strong>
-              <button type="button" onClick={storeFavorite}>
+              <button type="button" onClick={handleIsFavorite}>
                 {isFavorite ? (
-                  <BS.BsStarFill size={22} />
+                  <BS.BsStarFill size={22} color="#e9c46a" />
                 ) : (
                   <BS.BsStar size={22} />
                 )}

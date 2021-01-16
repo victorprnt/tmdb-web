@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import Card from '../../components/Card';
 import Header from '../../components/Header';
-import { getMovieDetail } from '../../services/movie-services';
 
 import * as S from './style';
 

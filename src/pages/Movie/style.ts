@@ -134,7 +134,6 @@ export const Details = styled.div`
     }
     div,
     footer {
-      /* display: flex; */
       align-items: center;
       justify-content: center;
     }
