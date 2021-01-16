@@ -51,9 +51,11 @@ const Header = () => {
         <a href="/">
           <img src={tmdbLogo} alt="TMDB Logo" width="70px" />
         </a>
-        <Link to="/movies">Movies</Link>
-        <Link to="/series">Series</Link>
-        <Link to="/favorites">Favorites</Link>
+        <div>
+          <Link to="/movies">Movies</Link>
+          <Link to="/series">Series</Link>
+          <Link to="/favorites">Favorites</Link>
+        </div>
       </S.LinksContainer>
 
       <S.FormContainer>

@@ -117,10 +117,12 @@ const Movie = () => {
       <Header />
       {movieDetail && (
         <S.Details>
-          <img
-            src={`${process.env.REACT_APP_TMDB_POSTER}${movieDetail.poster_path}`}
-            alt={movieDetail.title}
-          />
+          <div>
+            <img
+              src={`${process.env.REACT_APP_TMDB_POSTER}${movieDetail.poster_path}`}
+              alt={movieDetail.title}
+            />
+          </div>
           <section>
             <header>
               <strong>{movieDetail.title}</strong>

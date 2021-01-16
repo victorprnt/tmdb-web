@@ -5,13 +5,15 @@ export const Details = styled.div`
   display: flex;
 
   max-width: 1400px;
-  margin-top: 30px;
 
   margin: 0 auto;
   margin-top: 40px;
+  padding: 0 20px;
 
-  img {
-    border-radius: 5px;
+  div {
+    img {
+      border-radius: 5px;
+    }
   }
 
   section {
@@ -119,6 +121,22 @@ export const Details = styled.div`
           }
         }
       }
+    }
+  }
+
+  @media (max-width: ${theme.screenSize.tablet}) {
+    margin-top: 150px;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: fit-content;
+    }
+    div,
+    footer {
+      /* display: flex; */
+      align-items: center;
+      justify-content: center;
     }
   }
 `;

@@ -25,6 +25,7 @@ export const Wrapper = styled.section`
 
   @media (max-width: ${theme.screenSize.tablet}) {
     position: fixed;
+    z-index: 1;
     top: 0;
     flex-direction: column;
     align-items: center;
@@ -56,21 +57,23 @@ export const LinksContainer = styled.div`
     /* width: 100%; */
     /* margin-right: 20px; */
   }
+  div {
+    margin-left: 20px;
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 28px;
 
-  a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 28px;
+      transition: color 0.2s ease-in-out;
 
-    transition: color 0.2s ease-in-out;
+      &:hover {
+        color: ${theme.colors.secondary};
+      }
 
-    &:hover {
-      color: ${theme.colors.secondary};
-    }
-
-    & + a {
-      margin-left: 20px;
+      & + a {
+        margin-left: 20px;
+      }
     }
   }
 
@@ -106,14 +109,42 @@ export const FormContainer = styled.div`
     }
   }
 
+  /*
   @media (max-width: ${theme.screenSize.tablet}) {
+    margin-left: 0;
     form {
       width: 480px;
+      margin: 10px;
+      input {
+        width: fit-content;
+      }
+    }
+  }
+  @media (max-width: ${theme.screenSize.mobileL}) {
+    form {
+      width: 280px;
       input {
         width: 100%;
       }
     }
   }
+  @media (max-width: ${theme.screenSize.mobileM}) {
+    form {
+      width: 350px;
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: ${theme.screenSize.mobileS}) {
+    form {
+      width: 280px;
+      input {
+        width: 100%;
+      }
+    }
+  } */
 `;
 
 export const SearchMenu = styled.div`

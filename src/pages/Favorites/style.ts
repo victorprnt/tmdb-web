@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
     max-width: 980px;
   }
 
-  @media (max-width: ${theme.screenSize.mobileL}) {
+  @media (max-width: ${theme.screenSize.tablet}) {
     margin-top: 150px;
   }
 `;
